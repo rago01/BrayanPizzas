@@ -1,81 +1,26 @@
 <?php include('conexion.php')?>
-<section class="container">
-  <section class="panel panel-default">
-    <section class="panel-heading">
-    <article class="row justify-content-between ">
-      <div class="col-4 align-self-center">
-        <img src="img/logo.png" alt="" style="width: 200px">
-      </div>
-      <div class="col-4 align-self-center text-right">
-        <p class="h3">CATEGORIAS</p>
-      </div>
-    </article>
-    </section>
-    <section class="panel-body">
-      <section class="row">
-        <article class="col-12 col-md-4">
-          <div class="card">
-              <img class="card-img-top producto" src="img/img8.jpeg"   alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">TITULO CATEGORIA</h5>
-                <p class="card-text">DESCRIPCION.</p>
-                <a href="#" class="btn btn-primary">Seleccionar</a>
-              </div>
-          </div>
-        </article>
-        <article class="col-12 col-md-4">
-          <div class="card">
-              <img class="card-img-top producto" src="img/img7.jpeg" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">TITULO CATEGORIA</h5>
-                <p class="card-text">DESCRIPCION.</p>
-                <a href="#" class="btn btn-primary">Seleccionar</a>
-              </div>
-          </div>
-        </article>
-        <article class="col-12 col-md-4">
-          <div class="card">
-              <img class="card-img-top producto" src="img/img1.jpeg" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">TITULO CATEGORIA</h5>
-                <p class="card-text">DESCRIPCION.</p>
-                <a href="#" class="btn btn-primary">Seleccionar</a>
-              </div>
-          </div>
-        </article>
-        <article class="col-12 col-md-4">
-          <div class="card">
-              <img class="card-img-top producto" src="img/img4.jpeg" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">TITULO CATEGORIA</h5>
-                <p class="card-text">DESCRIPCION.</p>
-                <a href="#" class="btn btn-primary">Seleccionar</a>
-              </div>
-          </div>
-        </article>
-        <article class="col-12 col-md-4">
-          <div class="card">
-              <img class="card-img-top producto" src="img/img6.jpeg" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">TITULO CATEGORIA</h5>
-                <p class="card-text">DESCRIPCION.</p>
-                <a href="#" class="btn btn-primary">Seleccionar</a>
-              </div>
-          </div>
-        </article>
-        <article class="col-12 col-md-4">
-          <div class="card">
-              <img class="card-img-top producto" src="img/img2.jpeg" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">TITULO CATEGORIA</h5>
-                <p class="card-text">DESCRIPCION.</p>
-                <a href="#" class="btn btn-primary">Seleccionar</a>
-              </div>
-          </div>
-        </article>
-      </section>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+  Seleccionar
+</button>
 
-    </section>
-  </section>
-</section>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 ´
