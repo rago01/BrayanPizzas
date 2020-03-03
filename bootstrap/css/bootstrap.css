@@ -10221,10 +10221,6 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 
-.producto{
-  width: 200px;
-  height: 350px;
-  -o-object-fit: cover;
-    object-fit: cover;
-}
+
+
 /*# sourceMappingURL=bootstrap.css.map */
