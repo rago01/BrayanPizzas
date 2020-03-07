@@ -8,62 +8,152 @@ $cliente = $_SESSION['id_cliente']; $nombres = $_SESSION['nombres'];$apellidos =
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-<link rel="stylesheet" href="font-awesome/css/all.css">
-<link rel="stylesheet" href="font-awesome/css/all.min.css">
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-   
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+     <!-- Font Awesome CSS-->
+     <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+     <!-- Fontastic Custom icon font-->
+     <link rel="stylesheet" href="css/fontastic.css">
+     <!-- Google fonts - Roboto -->
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+     <!-- jQuery Circle-->
+     <link rel="stylesheet" href="css/grasp_mobile_progress_circle-1.0.0.min.css">
+     <!-- Custom Scrollbar-->
+     <link rel="stylesheet" href="vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
+     <!-- theme stylesheet-->
+     <link rel="stylesheet" href="css/style.sea.css" id="theme-stylesheet">
+     <!-- Favicon-->
+     <link rel="shortcut icon" href="img/favicon.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INICIO</title>
 </head>
-<body class="container-fluid" >
-    <header class="row justify-content-between">
-        <img  class="logo" src="img/logo.png" style="height: 100px;">
-        
-        <div class="row align-items-center ">
-          <div class="">
-            <img src="img/user.png" >
+<body>
+<div class="page">
+    <!-- Side Navbar -->
+    <nav class="side-navbar">
+      <div class="side-navbar-wrapper">
+        <!-- Sidebar Header    -->
+        <div class="sidenav-header d-flex align-items-center justify-content-center">
+          <!-- User Info-->
+          <div class="sidenav-header-inner text-center">
+            <h2 class="h5"><?php echo $nombres;?></h2><span><?php if ($_SESSION['id_perfil']=4) {
+              echo 'Cliente';
+            } ?></span>
           </div>
-          <div class="dropdown ">
-              <a href="#" class="btn text-dark  dropdown-toggle" id="menuUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <strong><?php echo $nombres.' '.$apellidos ?></strong>  
-              </a>
-            <div class="dropdown-menu" aria-labelledby="menuUser">
-                  <a class="dropdown-item text-decoration-none" href="/">Cuenta</a>
-                  <a class="dropdown-item text-decoration-none" href="/">Mis pedidos</a>
-                  <a class="dropdown-item text-decoration-none" href="cerrar.php">Cerrar sesion</a> 
-            </div>
+          <!-- Small Brand information, appears on minimized sidebar-->
+          <div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center"> <strong>B</strong><strong class="text-primary">P</strong></a></div>
+        </div>
+        <!-- Sidebar Navigation Menus-->
+        <div class="main-menu">
+          <h5 class="sidenav-heading">Main</h5>
+          <ul id="side-main-menu" class="side-menu list-unstyled">
+            <li><a href="index.html"> <i class="icon-home"></i>Dashboard</a></li>
+            <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Productos <div class="badge badge-warning">6 New</div></a>
+              <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
+                <li><a href="#">Categorías</a></li>
+                <li><a href="#">Producto</a></li>
+                <li><a href="#Inventario" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Inventario</a>
+                  <ul id="Inventario" class="collapse list-unstyled ">
+                    <li><a href="#">Movimientos</a></li>
+                    <li><a href="#">Proveedores</a></li>
+                    <li><a href="#">Ingredientes</a></li>
+                    <li><a href="#">Unidades</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="charts.html"> <i class="icon-grid"></i>Contabilidad</a></li>
+            <li><a href="tables.html"> <i class="fa fa-bar-chart"></i>Estadisticas</a></li>
+
+            <li><a href="#config" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Configuración</a>
+              <ul id="config" class="collapse list-unstyled ">
+                <li><a href="#">Administrar Usuarios</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+    <header class="header">
+      <nav class="navbar">
+        <div class="container-fluid">
+          <div class="navbar-holder d-flex align-items-center justify-content-between">
+            <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars"> </i></a><a href="index.html" class="navbar-brand">
+                <div class="brand-text d-none d-md-inline-block"><strong class="text-primary">Brayan Pizzas</strong></div></a></div>
+            <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+              <!-- Notifications dropdown-->
+              <li class="nav-item dropdown"> <a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-bell"></i><span class="badge badge-warning">12</span></a>
+                <ul aria-labelledby="notifications" class="dropdown-menu">
+                  <li><a rel="nofollow" href="#" class="dropdown-item">
+                      <div class="notification d-flex justify-content-between">
+                        <div class="notification-content"><i class="fa fa-envelope"></i>You have 6 new messages </div>
+                        <div class="notification-time"><small>4 minutes ago</small></div>
+                      </div></a></li>
+                  <li><a rel="nofollow" href="#" class="dropdown-item">
+                      <div class="notification d-flex justify-content-between">
+                        <div class="notification-content"><i class="fa fa-twitter"></i>You have 2 followers</div>
+                        <div class="notification-time"><small>4 minutes ago</small></div>
+                      </div></a></li>
+                  <li><a rel="nofollow" href="#" class="dropdown-item">
+                      <div class="notification d-flex justify-content-between">
+                        <div class="notification-content"><i class="fa fa-upload"></i>Server Rebooted</div>
+                        <div class="notification-time"><small>4 minutes ago</small></div>
+                      </div></a></li>
+                  <li><a rel="nofollow" href="#" class="dropdown-item">
+                      <div class="notification d-flex justify-content-between">
+                        <div class="notification-content"><i class="fa fa-twitter"></i>You have 2 followers</div>
+                        <div class="notification-time"><small>10 minutes ago</small></div>
+                      </div></a></li>
+                  <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center"> <strong> <i class="fa fa-bell"></i>view all notifications                                            </strong></a></li>
+                </ul>
+              </li>
+              <!-- Messages dropdown-->
+              <li class="nav-item dropdown"> <a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-envelope"></i><span class="badge badge-info">10</span></a>
+                <ul aria-labelledby="notifications" class="dropdown-menu">
+                  <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
+                      <div class="msg-profile"> <img src="img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                      <div class="msg-body">
+                        <h3 class="h5">Jason Doe</h3><span>sent you a direct message</span><small>3 days ago at 7:58 pm - 10.06.2014</small>
+                      </div></a></li>
+                  <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
+                      <div class="msg-profile"> <img src="img/avatar-2.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                      <div class="msg-body">
+                        <h3 class="h5">Frank Williams</h3><span>sent you a direct message</span><small>3 days ago at 7:58 pm - 10.06.2014</small>
+                      </div></a></li>
+                  <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
+                      <div class="msg-profile"> <img src="img/avatar-3.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                      <div class="msg-body">
+                        <h3 class="h5">Ashley Wood</h3><span>sent you a direct message</span><small>3 days ago at 7:58 pm - 10.06.2014</small>
+                      </div></a></li>
+                  <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center"> <strong> <i class="fa fa-envelope"></i>Read all messages    </strong></a></li>
+                </ul>
+              </li>
+              <!-- Languages dropdown    -->
+              <li class="nav-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle"><img src="img/flags/16/GB.png" alt="English"><span class="d-none d-sm-inline-block">English</span></a>
+                <ul aria-labelledby="languages" class="dropdown-menu">
+                  <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="img/flags/16/DE.png" alt="English" class="mr-2"><span>German</span></a></li>
+                  <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="img/flags/16/FR.png" alt="English" class="mr-2"><span>French                                                         </span></a></li>
+                </ul>
+              </li>
+              <!-- Log out-->
+              <li class="nav-item"><a href="login.html" class="nav-link logout"> <span class="d-none d-sm-inline-block">Logout</span><i class="fa fa-sign-out"></i></a></li>
+            </ul>
           </div>
         </div>
+      </nav>
     </header>
-
-
-<div class="row">
-  <div class="col-2">
-    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-      <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#dashboard" role="tab" aria-controls="v-pills-home" aria-selected="true">Dashboard</a>
-      <a class="nav-link dropdown-submenu" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Productos</a>
-      <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Contabilidad</a>
-      <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Promociones</a>
-      <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Estadisticas</a>
-      <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Configuraciones</a>
-      <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Ventas</a>
-      <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Inventario</a>
-    </div>
-  </div>
-  <div class="col-10">
-    <div class="tab-content" id="v-pills-tabContent">
-      <div class="tab-pane fade show active" id="dashboard" role="tabpanel" aria-labelledby="v-pills-home-tab">
-        <?php include("categorias_productos.php");?>
-      </div>
-      <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
-      <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
-      <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
-    </div>
-  </div>
 </div>
-</body>
-</html>
+    <!-- JavaScript files-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper.js/umd/popper.min.js"> </script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/grasp_mobile_progress_circle-1.0.0.min.js"></script>
+    <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
+    <script src="vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/charts-home.js"></script>
+    <!-- Main File-->
+    <script src="js/front.js"></script>
+  </body></html>
