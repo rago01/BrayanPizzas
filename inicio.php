@@ -1,6 +1,10 @@
 <?php
 session_start();
-$cliente = $_SESSION['id_cliente']; $nombres = $_SESSION['nombres'];$apellidos = $_SESSION['apellidos']; $celular = $_SESSION['celular'];
+$cliente = $_SESSION['id_cliente'];
+$perfil = $_SESSION['id_perfil'];
+$nombres = $_SESSION['nombres'];
+$apellidos = $_SESSION['apellidos'];
+$celular = $_SESSION['celular'];
 //echo var_dump($_SESSION);
 ?>
 <!DOCTYPE html>
@@ -20,6 +24,7 @@ $cliente = $_SESSION['id_cliente']; $nombres = $_SESSION['nombres'];$apellidos =
 </head>
 <body>
     <!-- Side Navbar -->
+  <div class="page">
     <nav class="side-navbar">
       <div class="side-navbar-wrapper">
         <!-- Sidebar Header    -->
