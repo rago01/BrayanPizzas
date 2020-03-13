@@ -18,7 +18,7 @@ if ($_POST['valida']=='user') {
       return false;
     }
 
-    public function setUser($user){
+    public function setUser($user){''
       $sql="SELECT id_user,id_perfil,nombres,apellidos,celular,t_doc,doc,email
             FROM users where doc=$user";
       $consulta=$conexion->prepare($sql);
@@ -32,7 +32,7 @@ if ($_POST['valida']=='user') {
 
     public function getNombres(){
       return $this->nombres;
-    } 
+    }
     //echo $sql;
   }
 }
