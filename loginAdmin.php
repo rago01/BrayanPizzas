@@ -29,6 +29,19 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
   </head>
+  <script src = "js/sha3.js"></script>
+      <script>
+        function validar(){
+            if (document.forms[0].clave1.value != ""){
+              document.forms[0].clave1.value = CryptoJS.SHA3(document.forms[0].clave1.value);
+            }else{
+            alert("La clave no puede estar vacía");
+            document.forms[0].clave1.value = "";
+            document.forms[0].clave1.focus();				// Ubicar el cursor
+            return(false);
+          }
+        }
+      </script>
   <body>
     <div class="page login-page">
       <div class="container">
@@ -36,17 +49,18 @@
           <div class="form-inner">
             <div class="logo text-uppercase"><span>Brayan</span><strong class="text-primary">Pizzas</strong></div>
             <p>Bienvenido/a</p>
-            <form method="get" class="text-left form-validate">
+            <form method="POST" enctype="multipart/form-data" onsubmit="return validar()" class="text-left form-validate" action="login.php">
               <div class="form-group-material">
-                <input id="login-username" type="text" name="loginUsername" required data-msg="Please enter your username" class="input-material">
-                <label for="login-username" class="label-material">Username</label>
+                <input id="login-username" type="text" name="user" required data-msg="Please enter your username" class="input-material">
+                <label for="login-username" class="label-material">User (N. Identificación)</label>
               </div>
               <div class="form-group-material">
-                <input id="login-password" type="password" name="loginPassword" required data-msg="Please enter your password" class="input-material">
+                <input id="login-password" type="password" name="clave1" required data-msg="Please enter your password" class="input-material">
                 <label for="login-password" class="label-material">Password</label>
               </div>
-              <div class="form-group text-center"><a id="login" href="index.html" class="btn btn-primary">Login</a>
-                <!-- This should be submit button but I replaced it with <a> for demo purposes-->
+              <div class="form-group text-center">
+                <input type="submit" class="btn btn-primary" name="aceptar" value="Ingresar">
+                <input type="hidden" name="valida" value="user">
               </div>
             </form>
           </div>
@@ -64,5 +78,6 @@
     <script src="vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
     <!-- Main File-->
     <script src="js/front.js"></script>
+
   </body>
 </html>

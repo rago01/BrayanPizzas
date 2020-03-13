@@ -34,7 +34,7 @@
 		</script>
 
 <?php
-include('conexion.php');
+require'conexion.php';
 
 ?>
 <div class="page login-page">
@@ -78,12 +78,13 @@ include('conexion.php');
           <select class="form-control " name="tipo_user">
             <option></option>
             <?php
-            echo $consulta="SELECT id_perfil, nombre_perfil FROM perfiles";
-            $resultado=mysqli_query($conexion, $consulta);
-            while ($perfil = mysqli_fetch_array($resultado)) {
-              echo'
-              <option value="'.$perfil['id_perfil'].'">'.$perfil['nombre_perfil'].'</option>';
-            }?>
+            $sql="SELECT id_perfil, nombre_perfil FROM perfiles";
+            $consulta=$conexion->prepare($sql);
+            $consulta->execute();
+            while ($perfil = $consulta->fetch(PDO::FETCH_ASSOC)) {
+              echo'  <option value="'.$perfil['id_perfil'].'">'.$perfil['nombre_perfil'].'</option>';
+            }
+            ?>
             </select>
           </div>
           <div class="form-group-material">
