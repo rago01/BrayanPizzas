@@ -43,6 +43,11 @@
         }
       </script>
   <body>
+    <?php
+
+    require'config/UserSession.php';
+
+    ?>
     <div class="page login-page">
       <div class="container">
         <div class="form-outer text-center d-flex align-items-center">
