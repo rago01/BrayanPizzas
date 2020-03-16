@@ -34,7 +34,7 @@
 		</script>
 
 <?php
-require'conexion.php';
+require'config/conexion.php';
 
 ?>
 <div class="page login-page">
@@ -66,6 +66,7 @@ require'conexion.php';
             <label for="login-password" class="label-material">Correo electronico</label>
             <input id="login-password" type="email" name="email" required data-msg="Please enter your password" class="input-material">
           </div>
+
           <div class="form-group-material">
           <label for="login-password" class="label-material">Número de Celular</label>
             <input id="login-password" type="number" name="celular" required data-msg="Please enter your password" class="input-material">
@@ -79,9 +80,9 @@ require'conexion.php';
             <option></option>
             <?php
             $sql="SELECT id_perfil, nombre_perfil FROM perfiles";
-            $consulta=$conexion->prepare($sql);
+            $consulta=$db->connect()->prepare($sql);
             $consulta->execute();
-            while ($perfil = $consulta->fetch(PDO::FETCH_ASSOC)) {
+            while ($perfil = $consulta->fetch()) {
               echo'  <option value="'.$perfil['id_perfil'].'">'.$perfil['nombre_perfil'].'</option>';
             }
             ?>

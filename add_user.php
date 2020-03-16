@@ -1,6 +1,6 @@
 
 <?php
-include('conexion.php');
+include('config/conexion.php');
 
 if ($_POST['valida']=='user') {
   if ($_POST['aceptar']!="Descartar") {
@@ -16,18 +16,18 @@ if ($_POST['valida']=='user') {
           }
         }
 
-   $sql="INSERT INTO users (id_perfil, nombres, apellidos, t_doc, doc, email, celular, direccion, clave, estado_user)
+ echo $sql="INSERT INTO users (id_perfil, nombres, apellidos, t_doc, doc, email, celular, direccion, clave, estado_user)
          VALUES ('".$_POST['tipo_user']."','".$_POST['nombres']."','".$_POST['apellidos']."',
         '".$_POST['tipo_doc']."','".$_POST['num_doc']."','".$_POST['email']."',
         '".$_POST['celular']."','".$_POST['direccion']."'$claveA2,'1')";
-        $consulta=$conexion->prepare($sql);
+        $consulta=$db->connect()->prepare($sql);
         $consulta->execute();
-      echo $sql;
+
   }
 }else {
   $cel = $_POST['celular'];
   $sql="SELECT celular from clientes where celular = '$cel'";
-  $consulta=$conexion->prepare($sql);
+  $consulta=$bd->connect()->prepare($sql);
   $consulta->execute();
   $total = mysqli_num_rows($consulta);
   // echo $total;

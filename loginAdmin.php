@@ -43,18 +43,18 @@
         }
       </script>
   <body>
-    <?php
-
-    require'config/UserSession.php';
-
-    ?>
-    <div class="page login-page">
+  <div class="page login-page">
       <div class="container">
         <div class="form-outer text-center d-flex align-items-center">
           <div class="form-inner">
             <div class="logo text-uppercase"><span>Brayan</span><strong class="text-primary">Pizzas</strong></div>
             <p>Bienvenido/a</p>
-            <form method="POST" enctype="multipart/form-data" onsubmit="return validar()" class="text-left form-validate" action="login.php">
+            <?php
+            if(isset($errorLogin)){
+                echo $errorLogin;
+            }
+        ?>
+            <form method="POST" enctype="multipart/form-data" onsubmit="return validar()" class="text-left form-validate" action="">
               <div class="form-group-material">
                 <input id="login-username" type="text" name="user" required data-msg="Please enter your username" class="input-material">
                 <label for="login-username" class="label-material">User (N. Identificación)</label>
@@ -72,6 +72,7 @@
         </div>
       </div>
     </div>
+    
     <!-- JavaScript files-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper.js/umd/popper.min.js"> </script>

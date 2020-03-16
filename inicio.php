@@ -1,12 +1,3 @@
-<?php
-session_start();
-$cliente = $_SESSION['id_cliente'];
-$perfil = $_SESSION['id_perfil'];
-$nombres = $_SESSION['nombres'];
-$apellidos = $_SESSION['apellidos'];
-$celular = $_SESSION['celular'];
-//echo var_dump($_SESSION);
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,8 +22,11 @@ $celular = $_SESSION['celular'];
         <div class="sidenav-header d-flex align-items-center justify-content-center">
           <!-- User Info-->
           <div class="sidenav-header-inner text-center">
-            <h2 class="h5"><?php echo $nombres;?></h2><span><?php if ($_SESSION['id_perfil']=4) {
+            <h2 class="h5"><?php echo $user->getNombre(); ?></h2><span><?php 
+            if ($user->getPerfil()==4) {
               echo 'Cliente';
+            }if ($user->getPerfil()==1) {
+              echo 'Administrador';
             } ?></span>
           </div>
           <!-- Small Brand information, appears on minimized sidebar-->
@@ -132,13 +126,23 @@ $celular = $_SESSION['celular'];
                 </ul>
               </li>
               <!-- Log out-->
-              <li class="nav-item"><a href="login.html" class="nav-link logout"> <span class="d-none d-sm-inline-block">Logout</span><i class="fa fa-sign-out"></i></a></li>
+              <li class="nav-item"><a href="config/logout.php" class="nav-link logout"> <span class="d-none d-sm-inline-block">Logout</span><i class="fa fa-sign-out"></i></a></li>
             </ul>
           </div>
         </div>
       </nav>
     </header>
+
+    <?php 
+echo var_dump($_SESSION);
+echo $_SESSION['id_user'];
+echo $consulta;
+echo $user->getPerfil();
+?>
 </div>
+
+
+
     <!-- JavaScript files-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper.js/umd/popper.min.js"> </script>

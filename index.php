@@ -1,7 +1,7 @@
 
     <?php
 
-    require 'conexion.php';
+    require 'config/conexion.php';
 
     if (isset($_POST['celular'])){
         session_start();
@@ -55,7 +55,7 @@
           <label class="h2">Número de celular:</label>
             <input type="number" class="form-control" name="celular">
           <p class="h2"><input type="submit" class="btn btn-danger" value="Ingresar">  ó <a href="register.php">Registrarse</a> </p> <hr>
-          <p class="h4 "> <a class="warning" href="loginAdmin.php">Ingresar como Administrador ó Cajero</a>  </p>
+          <p class="h4 "> <a class="warning" href="principal.php">Ingresar como Administrador ó Cajero</a>  </p>
         </form>
       </div>
     </section>
