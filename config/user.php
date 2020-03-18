@@ -3,6 +3,7 @@ include 'conexion.php';
 
 class usuario extends database{
     private $nombres;
+    private $apellidos;
     private $id_perfil;
     private $id_user;
     public function userExists($doc, $pass){
@@ -14,7 +15,9 @@ class usuario extends database{
       $consulta->execute();
 
             if($consulta->rowCount()){
-                echo "si";
+              foreach ($consulta as $actUser) {
+                echo 'si';
+              }
                 return true;
             }else{
                 echo "no";
@@ -29,6 +32,7 @@ class usuario extends database{
             $consulta->execute();
             foreach ($consulta as $currentUser) {
               $this->nombres = $currentUser['nombres'];
+              $this->apellidos = $currentUser['apellidos'];
               $this->id_user = $currentUser['id_user'];
               $this->id_perfil = $currentUser['id_perfil'];
             }
@@ -37,12 +41,15 @@ class usuario extends database{
           public function getNombre(){
             return $this->nombres;
         }
-        public function getPerfil(){
-            return $this->id_perfil;
-        }
+          public function getPerfil(){
+              return $this->id_perfil;
+          }
+          public function getApellidos(){
+              return $this->apellidos;
+          }
     }
 
-    
+
     //$ss->$this->connect();
 
 ?>

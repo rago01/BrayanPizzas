@@ -22,7 +22,7 @@
         <div class="sidenav-header d-flex align-items-center justify-content-center">
           <!-- User Info-->
           <div class="sidenav-header-inner text-center">
-            <h2 class="h5"><?php echo $user->getNombre(); ?></h2><span><?php 
+            <h2 class="h5"><?php echo $user->getNombre(); ?></h2><span><?php
             if ($user->getPerfil()==4) {
               echo 'Cliente';
             }if ($user->getPerfil()==1) {
@@ -56,7 +56,7 @@
 
             <li><a href="#config" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Configuración</a>
               <ul id="config" class="collapse list-unstyled ">
-                <li><a href="#">Administrar Usuarios</a></li>
+                <li><?php include('menuAdmin.php'); ?></li>
               </ul>
             </li>
           </ul>
@@ -133,11 +133,11 @@
       </nav>
     </header>
 
-    <?php 
-echo var_dump($_SESSION);
-echo $_SESSION['id_user'];
-echo $consulta;
+    <?php
 echo $user->getPerfil();
+echo $user->getNombre();
+echo $user->getApellidos();
+echo var_dump($_SESSION);
 ?>
 </div>
 

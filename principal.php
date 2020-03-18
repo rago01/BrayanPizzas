@@ -5,7 +5,7 @@ require 'config/userSession.php';
 $userSession = new UserSession();
 $user = new usuario();
 
-if (isset($_SESSION['user'])){
+if (isset($_SESSION['AUT']['id_user'])){
   $user->setUser($userSession->getCurrentUser());
   echo "EXiste";
   include_once 'inicio.php';
@@ -13,10 +13,10 @@ if (isset($_SESSION['user'])){
 
 $usuario = $_POST['user'];
 $password = $_POST['clave1'];
- 
+
   $user = new usuario();
   if($user->userExists($usuario, $password)){
-    echo "Existe";
+    //echo "Existe";
     $userSession->setCurrentUser($usuario);
     $user->setUser($usuario);
     include_once 'inicio.php';
