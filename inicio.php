@@ -1,3 +1,11 @@
+<?php 
+
+session_start();
+date_default_timezone_set('America/Bogota');
+include('config/user.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,21 +30,24 @@
         <div class="sidenav-header d-flex align-items-center justify-content-center">
           <!-- User Info-->
           <div class="sidenav-header-inner text-center">
-            <h2 class="h5"><?php echo $user->getNombre(); ?></h2><span><?php
-            if ($user->getPerfil()==4) {
+            <h2 class="h5"><?php  echo $_SESSION['AUT']['nombres']; ?></h2><span>
+            <?php 
+            if ($_SESSION['AUT']['id_perfil'] == 4) {
               echo 'Cliente';
-            }if ($user->getPerfil()==1) {
+            }if ($_SESSION['AUT']['id_perfil'] ==1) {
               echo 'Administrador';
-            } ?></span>
+            }
+            
+            ?></span>
           </div>
           <!-- Small Brand information, appears on minimized sidebar-->
-          <div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center"> <strong>B</strong><strong class="text-primary">P</strong></a></div>
+          <div class="sidenav-header-logo"><a href="inicio.php" class="brand-small text-center"> <strong>B</strong><strong class="text-primary">P</strong></a></div>
         </div>
         <!-- Sidebar Navigation Menus-->
         <div class="main-menu">
           <h5 class="sidenav-heading">Main</h5>
           <ul id="side-main-menu" class="side-menu list-unstyled">
-            <li><a href="index.html"> <i class="icon-home"></i>Dashboard</a></li>
+            <li><a href="inicio.php"> <i class="icon-home"></i>Dashboard</a></li>
             <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Productos <div class="badge badge-warning">6 New</div></a>
               <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                 <li><a href="#">Categorías</a></li>
@@ -56,7 +67,7 @@
 
             <li><a href="#config" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Configuración</a>
               <ul id="config" class="collapse list-unstyled ">
-                <li><?php include('menuAdmin.php'); ?></li>
+                <li><?php include('menus/menu_admin.php'); ?></li>
               </ul>
             </li>
           </ul>
@@ -68,7 +79,7 @@
       <nav class="navbar">
         <div class="container-fluid">
           <div class="navbar-holder d-flex align-items-center justify-content-between">
-            <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars"> </i></a><a href="index.html" class="navbar-brand">
+            <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars"> </i></a><a href="inicio.php" class="navbar-brand">
                 <div class="brand-text d-none d-md-inline-block"><strong class="text-primary">Brayan Pizzas</strong></div></a></div>
             <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
               <!-- Notifications dropdown-->
@@ -133,11 +144,10 @@
       </nav>
     </header>
 
-    <?php
-echo $user->getPerfil();
-echo $user->getNombre();
-echo $user->getApellidos();
-echo var_dump($_SESSION);
+    <?php 
+include ('content.php');
+
+echo $_SESSION['AUT']['id_perfil'];
 ?>
 </div>
 

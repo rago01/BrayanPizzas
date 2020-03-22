@@ -15,12 +15,9 @@ class usuario extends database{
       $consulta->execute();
 
             if($consulta->rowCount()){
-              foreach ($consulta as $actUser) {
-                echo 'si';
-              }
+              
                 return true;
             }else{
-                echo "no";
                 return false;
             }
         }
