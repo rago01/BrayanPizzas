@@ -13,7 +13,7 @@ include('config/user.php');
 <link rel="stylesheet" href="css/fontastic.css">
 <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="css/grasp_mobile_progress_circle-1.0.0.min.css">
-  <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
+  <link rel="stylesheet" href="css/style.sea.css" id="theme-stylesheet">
   <link rel="stylesheet" href="vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">    <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="css/custom.css">
@@ -145,10 +145,9 @@ include('config/user.php');
     </header>
 
     <?php 
-include ('content.php');
-
-echo $_SESSION['AUT']['id_perfil'];
-?>
+            include ('content.php');
+//echo $_SESSION['AUT']['id_perfil'];
+    ?>
 </div>
 
 

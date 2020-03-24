@@ -7,7 +7,12 @@ if (isset($_REQUEST['opcion'])) {
   WHERE a.id_perfil='".$_SESSION['AUT']['id_perfil']."' AND a.id_menu=$opcion";
   $consulta=$db->connect()->prepare($sql);
   $consulta->execute();
-  echo var_dump($consulta);
+   //var_dump($consulta);
+
+  foreach ($consulta as $menu) {
+    //echo var_Dump($menu);
+    include($menu['modulo'].'.php');
+  }
 }else{
   echo "ok";
 }

@@ -19,17 +19,10 @@ $(document).ready(function () {
             }
         },
         data: {
-<<<<<<< HEAD
             labels: ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"],
             datasets: [
                 {
                     label: "Datos",
-=======
-            labels: ["Jan", "Feb", "Mar", "Apr", "May", "June", "July"],
-            datasets: [
-                {
-                    label: "My First dataset",
->>>>>>> db1e8feb7ea510143b018cb509399ed5aa3191da
                     fill: true,
                     lineTension: 0.3,
                     backgroundColor: "rgba(77, 193, 75, 0.4)",
@@ -46,15 +39,9 @@ $(document).ready(function () {
                     pointHoverBackgroundColor: brandPrimary,
                     pointHoverBorderColor: "rgba(220,220,220,1)",
                     pointHoverBorderWidth: 2,
-<<<<<<< HEAD
                     pointRadius: 5,
                     pointHitRadius: 0,
                     data: [80, 50, 60, 90, 52, 25, 40],
-=======
-                    pointRadius: 1,
-                    pointHitRadius: 0,
-                    data: [50, 20, 60, 31, 52, 22, 40],
->>>>>>> db1e8feb7ea510143b018cb509399ed5aa3191da
                     spanGaps: false
                 },
                 {
@@ -93,7 +80,6 @@ $(document).ready(function () {
         type: 'doughnut',
         data: {
             labels: [
-<<<<<<< HEAD
                 "UNO",
                 "DOS",
                 "TRES"
@@ -101,15 +87,6 @@ $(document).ready(function () {
             datasets: [
                 {
                     data: [0, 50, 10],
-=======
-                "First",
-                "Second",
-                "Third"
-            ],
-            datasets: [
-                {
-                    data: [300, 50, 100],
->>>>>>> db1e8feb7ea510143b018cb509399ed5aa3191da
                     borderWidth: [1, 1, 1],
                     backgroundColor: [
                         brandPrimary,
